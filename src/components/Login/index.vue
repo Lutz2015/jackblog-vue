@@ -27,14 +27,14 @@
                 <img :src="captchaUrl"></img>
               </a>
             </div>
-  
+
           </div>
           <div class="form-group">
             <button class="btn btn-primary btn-lg btn-block" type="submit" id="signin_btn">登 录</button>
           </div>
         </form>
       </div>
-      <div class="login-sns">
+      <div class="login-sns" v-if="logins.length > 0">
         <p>您还可以通过以下方式直接登录</p>
         <snsloginbtns :logins="logins"></snsloginbtns>
       </div>
@@ -77,7 +77,7 @@ export default {
       'getCaptchaUrl',
       'localLogin'
     ]),
-    login() {  
+    login() {
       this.$validator.validateAll().then(result => {
         if(result){
           this.localLogin(this.user)

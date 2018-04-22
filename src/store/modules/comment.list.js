@@ -26,12 +26,15 @@ const actions = {
   addComment(store,data){
     api.addNewComment(data).then(response => {
       if(!response.ok){
-        return showMsg(store,response.data.error_msg || '添加评论失败!')
+        return showMsg(store,response.data.msg || '添加评论失败!')
+      }
+      if(response.data.code != 0) {
+        return showMsg(store,response.data.msg)
       }
       showMsg(store,'添加评论成功!','success')
-      store.commit(SUCCESS_ADD_COMMENT, { comment: response.data.data })
+      // store.commit(SUCCESS_ADD_COMMENT, { comment: response.data.data })
     }, response => {
-      showMsg(store,response.data.error_msg || '添加评论失败!')
+      showMsg(store,response.data.msg || '添加评论失败!')
     })
   },
   addReply(store,{cid,data}){

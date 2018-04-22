@@ -19,11 +19,11 @@ export const getCaptchaUrl = ({commit}) => {
 }
 
 export const getIndexImage = ({commit}) => {
-  api.getIndexImage().then(response => {
+  api.getSystemConfig(types.GET_INDEX_IMG).then(response => {
     if(!response.ok){
       return commit(types.GET_INDEX_IMG, {indexImg: img})
     }
-    commit(types.GET_INDEX_IMG, {indexImg: response.data.img})
+    commit(types.GET_INDEX_IMG, {indexImg: response.data.data.value})
   }, response => {
     commit(types.GET_INDEX_IMG, {indexImg: img})
   })

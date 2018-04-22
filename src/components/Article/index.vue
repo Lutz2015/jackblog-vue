@@ -27,7 +27,7 @@ export default {
       prevArticle: ({prenextArticle}) => prenextArticle.prev,
       commentList: ({commentList}) => commentList.items,
       options: ({options}) => options.item,
-      aid: ({route}) => route.params.aid    
+      aid: ({route}) => route.params.aid
     })
   },
   created () {
@@ -35,7 +35,7 @@ export default {
   },
   watch: {
     '$route': 'initData'
-  },  
+  },
   methods:{
     ...mapActions([
       'getArticleDetail',
@@ -50,7 +50,7 @@ export default {
       this.getPrenext(aid)
       this.getCommentList(aid)
       this.getArticleDetail(aid, this.user)
-    }, 
+    },
     openLoginModal(){
       this.$refs.modal.showModal()
     },
@@ -60,11 +60,11 @@ export default {
       }
     },
     handleSubmitComment(content){
-      if(this.user && content.trim() !== ''){
-        this.addComment({aid:this.$route.params.aid, content: content})
-      }else{
-        this.openLoginModal()
-      }
+      // if(this.user && content.trim() !== ''){
+        this.addComment({refId:this.$route.params.aid, type:3, content: content})
+      // }else{
+      //   this.openLoginModal()
+      // }
     },
     handleShowReply(content){
       //判断是否登录.未登录则弹出登录框.

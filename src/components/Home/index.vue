@@ -30,9 +30,9 @@ export default {
       options: ({options}) => options.item,
       articleList: ({articleList}) => articleList.items,
       isMore: ({articleList}) => articleList.isMore,
-      isFetching: ({articleList}) => articleList.isFetching      
+      isFetching: ({articleList}) => articleList.isFetching
     })
-  },  
+  },
   created(){
     if(this.indexImg === ''){
       this.getIndexImage()
@@ -40,6 +40,7 @@ export default {
     if(this.tagList.length < 1){
       this.getTagList()
     }
+    console.log(this.articleList);
     if(this.articleList.length < 1){
       this.getArticleList({options:this.options})
     }
@@ -50,7 +51,7 @@ export default {
       'getTagList',
       'changeOptions',
       'getArticleList'
-    ]),    
+    ]),
     handleChange(options,isAdd=false){
       this.changeOptions(options)
       this.getArticleList({options:this.options,isAdd:isAdd})

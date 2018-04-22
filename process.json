@@ -8,7 +8,7 @@
       "error_file"        : "./logs/pm2-err.log",
       "pid_file"          : "./logs/jackblog-vue.pid",
       "ignoreWatch"       : ["[\\/\\\\]\\./", "node_modules"],
-      "watch"             : "false",
+      "watch"             : "true",
       "exec_mode"         : "fork_mode", //cluster_mode
       "env": {
         "NODE_ENV"        : "production"

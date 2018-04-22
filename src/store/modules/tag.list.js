@@ -14,6 +14,9 @@ const actions = {
       if(!response.ok){
         return commit(GET_TAG_LIST_FAILURE)
       }
+      if(response.data.code != 0) {
+        return commit(GET_TAG_LIST_FAILURE)
+      }
       commit(GET_TAG_LIST_SUCCESS, { tagList: response.data.data })
     }, response => {
       commit(GET_TAG_LIST_FAILURE)

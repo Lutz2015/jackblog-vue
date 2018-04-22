@@ -23,42 +23,37 @@
 
             <Reply v-show="comment.replys.length > 0" :replys="comment.replys" :k="i"></Reply>
 
-             <form v-bind:id="'replyForm' + i" class="new-reply hide" @submit.prevent="submitReply(i,comment._id)"> 
-               <div class="comment-text"> 
+             <form v-bind:id="'replyForm' + i" class="new-reply hide" @submit.prevent="submitReply(i,comment._id)">
+               <div class="comment-text">
                   <textarea v-bind:id="'replyContent' + i"
-                      required 
-                      maxLength="2000" 
+                      required
+                      maxLength="2000"
                       placeholder="写下你的回复…">
-                  </textarea> 
-                  <div> 
+                  </textarea>
+                  <div>
                     <input type="submit" value="发 表" class="btn btn-sm btn-info"></input>
-                  </div> 
+                  </div>
                </div>
              </form>
 
           </div>
-        </div>               
-   
+        </div>
+
     </div>
 
-      <form v-if="user" class="new_comment" @submit.prevent="submitComment">
+      <form class="new_comment" @submit.prevent="submitComment">
         <div class="comment-text">
-          <textarea 
-            maxLength="2000" 
+          <textarea
+            maxLength="2000"
             required
-            v-model="newCommentContent" 
-            placeholder="写下你的评论…" 
+            v-model="newCommentContent"
+            placeholder="写下你的评论…"
             id="comment_content"></textarea>
           <div>
             <input type="submit" id="comment_submit_btn" value="发 表" class="btn btn-info"></input>
           </div>
         </div>
       </form>
-      <div v-else>
-        <p class="comment-signin">
-            <button class="btn btn-info" @click.prevent="openLoginModal()">登录后发表评论</button>  
-        </p>
-      </div>
   </div>
 </template>
 <script>

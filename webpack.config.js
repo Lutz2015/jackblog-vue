@@ -26,14 +26,14 @@ const config = {
       'process.env':{
         'NODE_ENV': JSON.stringify(env)
       }
-    }),    
+    }),
     new CommonsChunkPlugin({
       name: 'vendor',
       minChunks: Infinity //Infinity
     }),
-    new ExtractTextPlugin({ 
-      filename: debug?'[name].style.css':'[hash:8].style.css', 
-      disable: false, allChunks: true 
+    new ExtractTextPlugin({
+      filename: debug?'[name].style.css':'[hash:8].style.css',
+      disable: false, allChunks: true
     }),
     new HtmlWebpackPlugin({
       favicon:path.join(__dirname,'src/favicon.ico'),
@@ -54,9 +54,9 @@ const config = {
     rules: [
       { enforce: 'pre', test: /\.js$/, exclude: /node_modules/, use: ['eslint-loader'] },
       { test: /\.vue$/,
-        use: ['vue-loader'], 
-        include: path.join(__dirname,'src')}, 
-      { test: /\.js$/, 
+        use: ['vue-loader'],
+        include: path.join(__dirname,'src')},
+      { test: /\.js$/,
         use: ['babel-loader'],
         exclude: /node_modules|vue\/dist|vue-hot-reload-api|vue-router\/|vue-loader/
       },
@@ -151,7 +151,7 @@ if (debug) {
   config.devServer = {
     contentBase: path.join(__dirname, 'src'),
     port: 3000,
-    host: 'localhost',
+    host: '127.0.0.1',
     historyApiFallback: true,
     inline: true,
     hot: true,
@@ -162,7 +162,7 @@ if (debug) {
   }
 
 } else {
-  config.plugins.push(  
+  config.plugins.push(
     new UglifyJSPlugin()
   )
 }

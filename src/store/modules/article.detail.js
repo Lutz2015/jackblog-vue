@@ -10,7 +10,7 @@ const state = {
 // actions
 const actions = {
   getArticleDetail ({ commit },id,user){
-    api.getFrontArticle(id).then(response => {
+    api.getArticleDetail(id).then(response => {
       if(response.ok){
         let isLike = false
         const article = response.data.data
@@ -31,9 +31,9 @@ const actions = {
     api.toggleLike(id).then(response => {
       const json = response.data
       if(response.ok){
-        commit(TOGGLE_LIKE, { 
+        commit(TOGGLE_LIKE, {
           like_count: json.count,
-          isLike: json.isLike 
+          isLike: json.isLike
         })
       }
     })

@@ -1,4 +1,4 @@
-import {UserResource,AuthResource,ArticleResource,TagResource,MobileResource,CommentResource} from './resources'
+import {UserResource,AuthResource,ArticleResource,TagResource,MobileResource,CommentResource, SystemConfigResource, ArticleListResource, ArticleDetailResource, ArticlePreNextResource, CommentAddResource} from './resources'
 
 export default {
   localLogin: function (data) {
@@ -14,7 +14,7 @@ export default {
     return UserResource.update({id:'mdUser'},data)
   },
   getTagList:function () {
-    return TagResource.get({id: 'getFrontTagList'})
+    return TagResource.get()
   },
   getApps:function () {
     return MobileResource.get({id: 'getApps'})
@@ -43,7 +43,7 @@ export default {
     return CommentResource.get({id:id,controller: 'getFrontCommentList'})
   },
   addNewComment:function (data) {
-    return CommentResource.save({id:'addNewComment'},data)
+    return CommentAddResource.save(data)
   },
   addNewReply: function (id,data) {
     return CommentResource.save({id:id, controller:'addNewReply'},data)
@@ -53,5 +53,17 @@ export default {
   },
   delReply: function (id,data) {
     return CommentResource.update({id:id, controller:'delReply'},data)
+  },
+  getSystemConfig: function (key) {
+    return SystemConfigResource.get({key:key})
+  },
+  getArticleList: function (options) {
+    return ArticleListResource.get({page:options.currentPage, pageSize:options.itemsPerPage, categoryId:options.tagId, orderBy:options.sortName})
+  },
+  getArticleDetail: function (id) {
+    return ArticleDetailResource.get({id:id})
+  },
+  getArticlePreNext: function (id) {
+    return ArticlePreNextResource.get({id:id})
   }
 }
