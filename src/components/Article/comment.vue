@@ -9,21 +9,21 @@
           <div class="content">
             <div class="meta-top">
               <a class="avatar">
-                <img :src="comment.user_id.avatar || defaultAvatar" alt="comment.user_id.nickname"></img>
+                <img :src="defaultAvatar"></img>
               </a>
-              <a class="author-name link-light">{{comment.user_id.nickname}}</a>
+              <!-- <a class="author-name link-light">{{comment.user_id.nickname}}</a> -->
               <span class="reply-time">
-                {{comment.created | formatDate}}
+                {{comment.dateAdd | formatDate}}
               </span>
             </div>
             <p class="comment-content">{{comment.content}}</p>
-            <div class="comment-footer text-right">
+            <!-- <div class="comment-footer text-right">
               <a class="reply" href="javascript:;" @click.prevent="showReply(i, comment.user_id.nickname )">回复</a>
-            </div>
+            </div> -->
 
-            <Reply v-show="comment.replys.length > 0" :replys="comment.replys" :k="i"></Reply>
+            <!-- <Reply v-show="comment.replys.length > 0" :replys="comment.replys" :k="i"></Reply> -->
 
-             <form v-bind:id="'replyForm' + i" class="new-reply hide" @submit.prevent="submitReply(i,comment._id)">
+             <!-- <form v-bind:id="'replyForm' + i" class="new-reply hide" @submit.prevent="submitReply(i,comment._id)">
                <div class="comment-text">
                   <textarea v-bind:id="'replyContent' + i"
                       required
@@ -34,7 +34,7 @@
                     <input type="submit" value="发 表" class="btn btn-sm btn-info"></input>
                   </div>
                </div>
-             </form>
+             </form> -->
 
           </div>
         </div>
@@ -103,11 +103,11 @@ export default {
     },
     goComment(){
       const eleForm = document.getElementById('comment_content')
-      if(this.user){
+      // if(this.user){
         eleForm.focus()
-      }else{
-        this.$parent.openLoginModal()
-      }
+      // }else{
+      //   this.$parent.openLoginModal()
+      // }
     }
   }
 }

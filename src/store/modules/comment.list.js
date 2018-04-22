@@ -14,11 +14,14 @@ const state = {
 
 const actions = {
   getCommentList({ commit },id){
-    api.getFrontCommentList(id).then(response => {
+    api.getCommentList(id).then(response => {
       if(!response.ok){
         return commit(GET_COMMENT_LIST_FAILURE)
       }
-      commit(COMMENT_LIST, { commentList: response.data.data })
+      if(response.data.code != 0) {
+        return commit(GET_COMMENT_LIST_FAILURE)
+      }
+      commit(COMMENT_LIST, { commentList: response.data.data.reverse() })
     }, response => {
       commit(GET_COMMENT_LIST_FAILURE)
     })
@@ -32,7 +35,7 @@ const actions = {
         return showMsg(store,response.data.msg)
       }
       showMsg(store,'添加评论成功!','success')
-      // store.commit(SUCCESS_ADD_COMMENT, { comment: response.data.data })
+      store.commit(SUCCESS_ADD_COMMENT, { comment: {dateAdd:new Date(), content:data.content} })
     }, response => {
       showMsg(store,response.data.msg || '添加评论失败!')
     })

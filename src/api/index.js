@@ -1,4 +1,4 @@
-import {UserResource,AuthResource,ArticleResource,TagResource,MobileResource,CommentResource, SystemConfigResource, ArticleListResource, ArticleDetailResource, ArticlePreNextResource, CommentAddResource} from './resources'
+import {UserResource,AuthResource,ArticleResource,TagResource,MobileResource,CommentResource, SystemConfigResource, ArticleListResource, ArticleDetailResource, ArticlePreNextResource, CommentAddResource, CommentListResource} from './resources'
 
 export default {
   localLogin: function (data) {
@@ -41,6 +41,9 @@ export default {
   //comment
   getFrontCommentList:function (id) {
     return CommentResource.get({id:id,controller: 'getFrontCommentList'})
+  },
+  getCommentList:function (id) {
+    return CommentListResource.get({pageSize:65535, refId:id, type:3})
   },
   addNewComment:function (data) {
     return CommentAddResource.save(data)

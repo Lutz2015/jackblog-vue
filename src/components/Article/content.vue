@@ -4,7 +4,7 @@
     <div class="counts">
       <span class="views-count">阅读{{articleDetail.views}}</span>
       <span class="comments-count">评论{{articleDetail.commentNumber}}</span>
-      <span class="likes-count">喜欢{{articleDetail.usefulNumber}}</span>
+      <!-- <span class="likes-count">喜欢{{articleDetail.usefulNumber}}</span> -->
     </div>
     <div class="markdown-content" v-html="articleDetail.content"></div>
   </div>

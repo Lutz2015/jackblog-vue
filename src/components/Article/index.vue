@@ -1,7 +1,6 @@
 <template>
   <div class="article-box">
     <ArtickeContent :article-detail="articleDetail"></ArtickeContent>
-    <Like :like-count="articleDetail.like_count" :is-like="articleDetail.isLike"></Like>
     <Prenext :prev-article="prevArticle" :next-article="nextArticle"></Prenext>
     <Comment :comment-list="commentList" :user="user"></Comment>
     <Loginmodal ref='modal'></Loginmodal>
