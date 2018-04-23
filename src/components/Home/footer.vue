@@ -3,10 +3,10 @@
 	<div class="footer-container">
 	  <ul>
 	    <li>
-	      <span>©2015 / 鄂ICP备15010989号-1</span>
+	      <span>浙ICP备13024313号-2</span>
 	    </li>
 	    <li>
-	      <a class="github" href="https://github.com/jackhutu/jackblog-vue" target="_blank">
+	      <a class="github" href="https://github.com/gooking/jackblog-vue" target="_blank">
 	        <i class="fa fa-github"></i>
 	      </a>
 	    </li>
@@ -22,6 +22,6 @@
 
 <script>
 	export default {
-		
+
 	}
 </script>

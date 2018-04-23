@@ -1,12 +1,24 @@
+# 本分支改进
+
+本项目的api接口及后台管理直接使用的 api工厂 提供的免费云后台；
+
+blog 前端展示： http://blog.s2m.cc/
+
+blog 后台管理： http://blog.it120.cc/
+（用户名  guest 密码 123456）
+
+api工厂地址：https://www.it120.cc/
+【注册可获得免费的api接口和后台使用功能】
+
 # Jackblog Vue 版
-[![Dependency Status](https://david-dm.org/jackhutu/jackblog-vue.svg)](https://david-dm.org/jackhutu/jackblog-vue) 
+[![Dependency Status](https://david-dm.org/jackhutu/jackblog-vue.svg)](https://david-dm.org/jackhutu/jackblog-vue)
 [![devDependency Status](https://david-dm.org/jackhutu/jackblog-vue/dev-status.svg)](https://david-dm.org/jackhutu/jackblog-vue#info=devDependencies)  
 
 Jackblog 是使用 Node.js + MongoDB + 其它客户端框架开发的个人博客系统,前后端分离,仿简书模板.    
 服务端有: [express 版](https://github.com/jackhutu/jackblog-api-express) , [koa 版](https://github.com/jackhutu/jackblog-api-koa)         
 客户端有: [angular1.x 版](https://github.com/jackhutu/jackblog-angular1) , [angular2.x 版](https://github.com/jackhutu/jackblog-angular2) , [react 版](https://github.com/jackhutu/jackblog-react) , [vue 版](https://github.com/jackhutu/jackblog-vue)    
 移动端有: [react native 版](https://github.com/jackhutu/jackblog-react-native-redux), [ionic2.0 版](https://github.com/jackhutu/jackblog-ionic2)      
-##### 此为客户端vue版, 需要配合服务端使用. 
+##### 此为客户端vue版, 需要配合服务端使用.
 
 > 服务端任选一种, 请预先安装并启动服务端
 
@@ -49,7 +61,7 @@ $ npm run dev
 ```
 
 ## 生产环境构建  
- 
+
 ```
 $ npm run build
 ```
